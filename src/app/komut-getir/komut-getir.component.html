@@ -1,0 +1,44 @@
+<p>Komutlar  </p>
+<div class=" alert alert-primary ">
+  <select (change)="handleDropdownChange($event)" class="form-select" aria-label="Default select example">
+    <option value="0">None</option>
+    <option value="LOGIN">Login</option>
+    <option value="Getdeviceinfo">Getdeviceinfo</option>
+    <option value="Gettime">Gettime</option>
+    <option value="Settime">Settime</option>
+    <option value="Getconfig">Getconfig</option>
+    <option value="Setconfig">Setconfig</option>
+    <option value="Restartdevice">Restartdevice</option>
+    <option value="Restartrfmodule">Restartrfmodule</option>
+    <option value="StartMqtttrace">StartMqtttrace</option>
+    <option value="StopMqtttrace">StopMqtttrace</option>
+    <option value="Addtasklist">Addtasklist</option>
+    <option value="AddTask">AddTask</option>
+  </select>
+
+
+<div *ngIf="showCategory">
+  <app-category ></app-category>
+</div>
+</div>
+
+<!-- <div class=" alert alert-primary ">
+  <select class="form-select" aria-label="Default select example" >
+  [(ngModel)]="selectedOption"  (change)="OnDeptChange()"> -->
+
+     <!-- <ng-container *ngFor="let task of tasks" >
+      <option value="{{task}}">{{task}}
+
+       </option>
+  </ng-container> -->
+
+
+
+
+
+
+
+
+
+
+

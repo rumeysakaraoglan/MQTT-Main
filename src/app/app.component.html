@@ -1,0 +1,36 @@
+
+
+
+<div class="form">
+  <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+<div class="container">
+  <!--e Content here
+<app-homepage></app-homepage> -->
+<div class="row">
+  <app-nav> </app-nav>
+   <ng-template #Loading>
+  </ng-template>
+
+</div>
+ <app-komut-getir [loadingTemplate]="Loading"  ></app-komut-getir>
+
+<div class="row">
+  <div class = "col-md-7">
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class = "col-md-5">
+    <app-log></app-log>
+  </div>
+
+
+</div>
+<!-- <app-homepage></app-homepage>  -->
+
+
+</div>
+</form>
+</div>
+<button type="submit" class="btn btn-primary">Submit</button>
+
+

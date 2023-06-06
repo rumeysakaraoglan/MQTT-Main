@@ -1,0 +1,136 @@
+<!-- <html> -->
+  <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()" >
+<body>
+<table class="table table-bordered bg-light" style="width:100%">
+  <tr style="height:400px">
+    <td>
+        <div [innerHTML]="komut"></div>
+        <div id="app"></div>
+
+        <div>
+        <tr>
+          <td>
+        <label for="">Mode</label>
+        <select>
+          <option *ngFor="let m of modes" [value]="m.value">{{ m.label }} - {{ m.value }}</option>
+        </select>
+          </td>
+        </tr>
+        <tr>
+          <div class ="form-control">
+        <td> <input  type="text" class="form-control" placeholder="prefix" formControlName="prefix" >
+        </td>
+      </div>
+        </tr>
+        <tr>
+        <td> <input type="text" class="form-control" placeholder="Serial" formControlName="serial">
+        </td>
+        </tr>
+        <tr>
+        <td>
+          <label>
+            Load Profile <input type="checkbox" formControlName="checkbox">
+        </label>
+         </td>
+         </tr>
+         </div>
+        <td>
+        <label>Channel Type</label>
+
+    <tr>
+      <td> <input type="number" step="10" min="0" max="300" class="form-control" placeholder="Start Baudrate" formControlName="startbaudrate">
+      </td>
+    </tr>
+    <tr>
+      <td> <input type="number" min="1" max="20" class="form-control" placeholder="Max Baud" formControlName="maxbaud">
+      </td>
+    </tr>
+    <tr>
+       <td>
+        <input type="number" min="1" max="20"class="form-control" placeholder="Databits" formControlName="databits">
+      </td>
+    </tr>
+    <tr>
+      <td> <input type="number" min="1" max="20" class="form-control" placeholder="Stopbits" formControlName="stopbits">
+
+      </td>
+
+    </tr>
+    <tr>
+      <td> <input type="text" class="form-control" placeholder="Obis Code List" formControlName="obiscodelist">
+      </td>
+    </tr>
+    <tr>
+      <td> <input type="text" class="form-control" placeholder="Note" formControlName="note">
+      </td>
+    </tr>
+    <tr>
+      <td><input type= "submit" type="number" min="0" max="20" class="form-control" placeholder="Tag" formControlName="tag">
+      </td>
+    </tr>
+      </td>
+
+    <td>
+        <tr>
+        Start Time
+        <input type="date" class="form-control">
+        </tr>
+        <tr>
+        End Time<input type="date" class="form-control ">
+        </tr>
+
+       <tr>
+        <td>
+          <label> Instant Start
+           <input type="checkbox">
+        </label>
+
+          <label> Periyodical
+           <input type="checkbox">
+        </label>
+         </td>
+        </tr>
+
+
+      <tr>
+        <td> <input type="text" class="form-control" placeholder="Schedule" formControlName="schedule">
+        </td>
+      </tr>
+      <tr>
+        <td> <input type="number"  min="1" max="20" class="form-control" placeholder="Max Try" formControlName="maxtry">
+
+        </td>
+
+      </tr>
+      <tr>
+        <td> <input type="number" class="form-control" placeholder="Start Offset Day" formControlName="startoffset">
+        </td>
+        <form>
+          <input type="number" min="10" max="20" required>
+          </form>
+      </tr>
+
+    </td>
+
+    <tr>
+      <td> <input type="text" class="form-control" placeholder="Obis Code List " formControlName="obiscodelist">
+      </td>
+      <td> <input type="text" class="form-control" placeholder="Name List " formControlName="namelist">
+      </td>
+
+    </tr>
+ <tr>
+  <td> <input type="text" class="form-control" placeholder="Tag " formControlName="tag">
+  </td>
+   <td> <input type="text" class="form-control" placeholder="Note" > <!-- note 2 tane yazılı -->
+  </td>
+ </tr>
+ <button type="submit" class="btn btn-primary">Submit</button>
+    </table>
+
+
+
+ </body>
+<!-- </html> -->
+
+</form>

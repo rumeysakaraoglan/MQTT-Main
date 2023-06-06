@@ -1,0 +1,45 @@
+
+<form [formGroup]="connectAddForm">
+  <div class="form" >
+
+
+<div class="row alert alert-primary">
+<table >
+  <tr>
+    <div class ="form-control">
+    <td>
+        <input type="text" class="form-control "   placeholder="Server Aden" aria-label="Server Aden" formControlName="ServerAden">
+    </td>
+    <!-- <div *ngIf="serverAden.touched && serverAden.invalid" class=" alert alert-danger">
+      Server Aden is Requierd </div> -->
+   </div>
+    <td>  <button type="submit" class="btn btn-primary">Connect</button></td>
+    <td> <input type="text" class="form-control" placeholder="Subscribe Topic" aria-label="Subscribe Topic" formControlName="SubscribeTopic">
+     </td>
+    <td>  <button type="submit" class="btn btn-primary">Subscribe topic</button></td>
+    <td> </td>
+  </tr>
+</table>
+</div>
+<div class="row alert alert-primary">
+  <table  >
+  <tr >
+  <td> <label for="birthday"> Başlangıç: </label> </td>
+  <div class="input-group flex-nowrap">
+    <span class="input-group-text" id="addon-wrapping">🗓️</span>
+    <td class="table-secondary"></td><input type="date" class="form-control ">
+    <td> <label for="birthday"> Bitiş: </label> </td>
+  <span class="input-group-text" id="addon-wrapping">🗓️</span>
+  <td class="table-secondary"></td><input type="date" class="form-control ">
+</div>
+</tr>
+</table>
+</div>
+
+<div class="container">
+  <div class="row">
+
+</div> <!--row end-->
+</div> <!--container end--->
+
+
