@@ -1,5 +1,5 @@
 import { Component, Input,Output, OnInit, EventEmitter, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators,FormBuilder} from '@angular/forms';
+import { FormControl, FormGroup, Validators,FormBuilder, FormArray} from '@angular/forms';
 import { Subscriber } from 'rxjs';
 import { mqtt } from '../models/mqtt.module';
 import { ApiService } from '../service/api.service';
@@ -17,98 +17,80 @@ import { ApiService } from '../service/api.service';
   `
 })
 export class NavComponent implements OnInit {
+
+  navForm=new FormGroup({
+    ServerAden : new FormControl(''),
+    SubscribeTopic : new FormControl('')
+
+  })
+  onSubmit(){
+    console.log(this.navForm.value);
+  }
+  get form(){return this.navForm.controls;}
+
+   getCihaz(): mqtt{
+  const data =new mqtt();
+  data.ServerAden=this.form.ServerAden.value;
+  data.SubscribeTopic=this.form.SubscribeTopic.value;
+  return data;
+}
+constructor( private apiservice: ApiService, private formBuilder: FormBuilder ) { }
+ngOnInit(): void {
+  this.navForm;
+  this.apiservice
+  .getAllApi().subscribe({
+    next: data =>{
+      //this.navForm =data;
+      console.log(this.navForm)
+    }
+  });
+}
+
+
+
+
+
+
   @Output() data : EventEmitter<any>=new EventEmitter();
-  connectAddForm:FormGroup;
-
-
-  // navForm = new FormGroup({
-  //   ServerAden: new FormControl('',[Validators.required,
-  //      Validators.minLength(5)
-  //     ]),
-  //   SubscribeTopic : new FormControl('',[Validators.required,
-  //   Validators.minLength(10)])
-  // })
-
+  //connectAddForm:FormGroup;
   @ViewChild('myInput') myInput: any;
-  SubscribeTopic: any;
 
-  constructor( private apiservice: ApiService, private formBuilder: FormBuilder ) { }
   title= "Mqtt"
   childData="mfkfm ıvmfg";
 
- createConnectForm(){
-  this.connectAddForm=this.formBuilder.group({
-    ServerAden:["",Validators.required],
-    SubscribeTopic:["",Validators.required]
-  })
+
  }
 
 
- add(){
-  if(this.connectAddForm.valid){
-    let connect:mqtt=Object.assign({},this.connectAddForm.value)
-    console.log(connect);
 
-  }else{
-    alert("Hata var")
-  }
- }
 
-  ngOnInit(){
-   this.createConnectForm();
-  //   this.apiservice.getAllBooks()
+  // ngOnInit(){
+  //  this.createConnectForm();
+  //   this.apiservice
   //     .subscribe({
   //       next: data =>{
-  //        this.komutlist = data;
-  //        console.log(this.komutlist)
-  //       });
-
-this.serverAden();
+  //        this.createConnectForm = data;
+  //        console.log(this.connectAddForm)
+  //       }});
+  //     }
+  // this.serverAden();
 
   //  this.data.emit("nav dan gelen veri ");
-  //  this.reactiveForm=new FormGroup({
+  //  this.connectAddForm=new FormGroup({
   //   ServerAden: new FormControl(null),
   //   SubscribeTopic: new FormControl(null),
-  //  });
-  // }
 
-  // onSubmit(){
-  //   console.log(this.navForm.value);
   // }
 
 
-  // get form(){return this.navForm.controls;}
-  // getCihaz(): mqtt {
-  //   const data = new mqtt();
-
-  //   //data . id = this.navForm ? this.navForm.id :0;
-  //   data.SubscribeTopic=this.SubscribeTopic.value;
-  //   data.ServerAden=this.serverAden.value;
-
-  //   return data;
-  // }
 
 
-  }
-
-  serverAden(){
-    return this.connectAddForm.get('ServerAden');
-  }
-
-  // Updatenav(){
-  //   this.navForm.patchValue({
-  //     ServerAden:'rr',
-  //     SubscribeTopic:'rrr'
-  //   })
-  // }
 
 
-  // getAll():Observable<mqtt>{
-  //   return this.http.get<navForm>(this.baseApiUrl+"getAll");
-  // }
 
-}
-function serverAden() {
-  throw new Error('Function not implemented.');
-}
+
+
+
+
+
 

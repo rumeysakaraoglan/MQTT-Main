@@ -18,8 +18,8 @@ export class KomutService {
 
   }
 
-  getAll():Observable<mqtt>{
-    return this.http.get<mqtt>(this.baseApiUrl+"getAll");
+  getAll():Observable<connectAddForm>{
+    return this.http.get<connectAddForm>(this.baseApiUrl+"getAll");
   }
 
 }
